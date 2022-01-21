@@ -62,7 +62,12 @@ class Point:
         "Translation par le vecteur"
         for i in range(len(self)):
             self[i] += vector[i]
-
+            
+    def scale(self, scale: float) -> None:
+        "Homotétie de centre (0;0) et de scalaire scale"
+        for i in range(len(self)):
+            self[i] *= scale
+        
     def distanceOf(self, point: "Point") -> float:
         """Distance séparant les deux points"""
         return math.hypot(*[self[i] - point[i] for i in range(len(self))])
