@@ -183,4 +183,7 @@ class Vector:
 
     def unitVector(self) -> "Vector":
         "Vecteur unitaire"
-        return self / self.norm()
+        if self.norm() != 0:
+            return self / self.norm()
+        else:
+            return Vector((0,0))
