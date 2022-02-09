@@ -48,9 +48,9 @@ class ConvexPolygon(Polygon):
             edge.vector().normalVector() for edge in self._edgesNeededForSAT()
         ] + [minRelation]:
             myProjections = [
-                axis.scalarProduct(Vector(*vertex)) for vertex in self.vertices()
+                axis.scalarProduct(Vector(vertex)) for vertex in self.vertices()
             ]
-            hisProjection = axis.scalarProduct(Vector(*circle.center()))
+            hisProjection = axis.scalarProduct(Vector(circle.center()))
             myMin, myMax = (fun(myProjections) for fun in (min, max))
             hisMin, hisMax = (
                 hisProjection - circle.radius(),
@@ -68,10 +68,10 @@ class ConvexPolygon(Polygon):
         for edge in self._edgesNeededForSAT() + otherPolygon._edgesNeededForSAT():
             axis = edge.vector().normalVector()
             myProjections = [
-                axis.scalarProduct(Vector(*vertex)) for vertex in self.vertices()
+                axis.scalarProduct(Vector(vertex)) for vertex in self.vertices()
             ]
             hisProjections = [
-                axis.scalarProduct(Vector(*vertex))
+                axis.scalarProduct(Vector(vertex))
                 for vertex in otherPolygon.vertices()
             ]
             myMin, myMax = (fun(myProjections) for fun in (min, max))
